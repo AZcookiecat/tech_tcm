@@ -1,120 +1,145 @@
-# 慧脉中医项目
+# 慧脉中医
 
-## 项目简介
-慧脉中医平台是一个结合传统中医理论与现代人工智能技术的健康服务平台，致力于为用户提供个性化的中医健康诊断、症状自查、处方推荐和中医知识普及服务。平台通过数字化手段传承和创新中医文化，让中医智慧惠及更多人群。
+慧脉中医是一个基于前后端分离架构的智慧中医服务平台，致力于传承中医智慧，利用现代科技为用户提供便捷的中医健康服务。
 
 ## 技术栈
-- **前端**：HTML5 + CSS3 + JavaScript
-- **后端**：Flask (Python Web框架)
-- **数据库**：MySQL
-- **其他**：响应式设计
 
-## 主要功能
+### 前端
+- **框架**: Vue 3 (Composition API)
+- **构建工具**: Vite
+- **路由**: Vue Router
+- **HTTP客户端**: Axios
+- **样式**: CSS3 (原生)
+- **状态管理**: localStorage (用于认证状态管理)
 
-### 1. 症状自查
-- 提供多分类症状选择（头部症状、身体症状、消化系统、其他症状）
-- 支持症状标签的选择与管理
-- 根据选择的症状提供初步的中医调理建议
+### 后端
+- **框架**: Flask
+- **ORM**: SQLAlchemy
+- **认证**: JWT (JSON Web Token)
+- **CORS**: Flask-CORS
+- **数据库**: MySQL
 
-### 2. 智能诊断
-- 舌诊分析：上传舌象照片进行中医舌诊
-- 问诊问卷：通过详细问卷了解身体状况
-- 脉诊模拟：利用传感器技术捕捉脉象特征
-
-### 3. 处方推荐
-- 根据用户体质和症状推荐个性化中药处方
-- 提供处方组成、功效、用法用量等详细信息
-
-### 4. 中医知识
-- 中医基础理论介绍
-- 体质辨识知识
-- 四季养生方法
-- 常用穴位保健
-
-### 5. 用户系统
-- 用户注册与登录
-- 个人健康档案管理
-- 历史诊断记录查询
-
-## 以上为基础功能，后续可开发基于计算机视觉、AI算法的智能诊断、智能问诊、智能处方等功能，让中医智慧惠及更多人群。
-
-## 项目文件结构
+## 项目结构
 
 ```
-e:/PROJECT/tech-tcm/
-├── app.py                    # Flask应用入口文件
-├── readme.md                 # 项目说明文档
-├── requirements.txt          # Python依赖包列表
-├── config.py                 # 配置文件
-├── test/                     # 测试用例
-├── static/                   # 静态资源目录
-│   ├── css/                  # 样式文件
-│   │   └── style.css         # 主样式文件
-│   ├── js/                   # JavaScript文件
-│   │   └── script.js         # 主脚本文件
-│   └── images/               # 图片资源
-├── templates/                # HTML模板
-│   └── index.html            # 首页
-├── models/                   # 数据模型
-│   ├── user.py               # 用户模型
-│   ├── symptom.py            # 症状模型
-│   └── prescription.py       # 处方模型
-├── routes/                   # 路由文件
-│   ├── auth.py               # 认证路由
-│   └── api.py                # API接口路由
-├── utils/                    # 工具函数
-│   ├── db.py                 # 数据库连接
-│   ├── diagnosis_ai.py       # 智能诊断算法
-│   └── image_processing.py   # 图片处理
-└── database/                 # 数据库相关
-    └── init.sql              # 数据库初始化脚本
+tech-tcm/
+├── frontend/              # 前端代码
+│   ├── public/            # 静态资源
+│   ├── src/               # 源代码
+│   │   ├── components/    # Vue组件
+│   │   ├── views/         # 页面视图
+│   │   ├── router/        # 路由配置
+│   │   ├── utils/         # 工具函数
+│   │   ├── App.vue        # 根组件
+│   │   └── main.js        # 入口文件
+│   ├── package.json       # 前端依赖
+│   └── vite.config.js     # Vite配置
+├── backend/               # 后端代码
+│   ├── app/               # Flask应用
+│   │   ├── __init__.py    # 应用初始化
+│   │   ├── models/        # 数据模型
+│   │   ├── routes/        # API路由
+│   │   └── utils/         # 工具函数
+│   ├── config.py          # 配置文件
+│   ├── app.py             # 后端入口
+│   └── requirements.txt   # 后端依赖
+└── README.md              # 项目说明
 ```
 
-## 快速开始
+## 功能特性
 
-### 1. 环境准备
-- Python 3.7+
-- MySQL 5.7+
-- pip 包管理器
+- ✅ 用户注册与登录
+- ✅ 个人中心（查看/编辑资料）
+- ✅ 智能问诊
+- ✅ 名医推荐
+- ✅ 病历记录
+- ✅ 健康管理
+- ✅ 响应式设计
+- ✅ 中医风格UI
 
-### 2. 安装依赖
-```bash
-pip install -r requirements.txt
-```
+## 本地部署与启动
 
-### 3. 数据库配置
-- 创建MySQL数据库
-- 运行初始化脚本：
-  ```bash
-  mysql -u username -p database_name < database/init.sql
-  ```
-- 修改config.py中的数据库连接信息
+### 环境要求
 
-### 4. 启动应用
-```bash
-python app.py
-```
+- **Node.js**: 16.x 或更高版本
+- **Python**: 3.8 或更高版本
+- **MySQL**: 5.7 或更高版本
 
-### 5. 访问应用
-打开浏览器访问：http://localhost:5000
+### 后端部署
+
+1. **安装依赖**
+   ```bash
+   cd backend
+   pip install -r requirements.txt
+   ```
+
+2. **配置数据库**
+   - 确保MySQL服务已启动
+   - 创建数据库 `tech_tcm`
+   - 修改 `config.py` 中的数据库连接信息（如果需要）
+
+3. **初始化数据库**
+   ```bash
+   python
+   >>> from app import db
+   >>> db.create_all()
+   >>> exit()
+   ```
+
+4. **启动后端服务**
+   ```bash
+   python app.py
+   ```
+   - 服务将运行在 `http://127.0.0.1:5000`
+
+### 前端部署
+
+1. **安装依赖**
+   ```bash
+   cd frontend
+   npm install
+   ```
+
+2. **启动前端开发服务器**
+   ```bash
+   npm run dev
+   ```
+   - 服务将运行在 `http://localhost:5173`（或其他可用端口）
+
+3. **访问应用**
+   - 打开浏览器访问前端服务地址（如：http://localhost:5173）
+
+## API接口
+
+### 认证相关
+- `POST /api/auth/register` - 用户注册
+- `POST /api/auth/login` - 用户登录
+
+### 用户相关
+- `GET /api/user/profile` - 获取用户信息
+- `PUT /api/user/profile` - 更新用户信息
 
 ## 开发说明
 
 ### 前端开发
-- 使用响应式设计确保在不同设备上的良好显示
-- 所有静态资源放在static目录下
-- HTML模板使用Flask的Jinja2模板引擎，可实现快速开发
+- 所有页面组件放在 `src/views/` 目录下
+- 可复用组件放在 `src/components/` 目录下
+- API请求统一使用Axios
+- 登录状态通过localStorage管理
 
 ### 后端开发
-- 遵循RESTful API设计规范
-- 数据库操作使用SQLAlchemy ORM
-- 业务逻辑与路由分离，保持代码清晰
+- 所有API路由放在 `app/routes/` 目录下
+- 数据模型放在 `app/models/` 目录下
+- 配置信息放在 `config.py` 中
+- 使用JWT进行认证保护
 
-### 数据库设计
-- 用户表：存储用户基本信息
-- 症状表：存储所有可选症状
-- 诊断记录表：存储用户诊断历史
-- 处方表：存储中药处方信息
+## 注意事项
+
+1. 确保MySQL数据库服务已正常启动
+2. 后端服务默认运行在5000端口，前端默认运行在5173端口
+3. 首次启动需要初始化数据库
+4. 前端API请求地址已配置为后端服务地址
 
 ## 许可证
+
 MIT License
